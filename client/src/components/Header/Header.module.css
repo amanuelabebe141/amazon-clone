@@ -125,10 +125,13 @@ nav ul li {
     padding: 5px;
     display: flex;
     flex-direction: column;
-    height: 18vh;
+    height: 13vh;
     justify-content: flex-start;
   }
   .center {
+    display: none;
+  }
+  .right {
     display: none;
   }
   .left {
