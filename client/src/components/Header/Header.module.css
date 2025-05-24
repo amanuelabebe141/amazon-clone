@@ -2,6 +2,7 @@ header {
   background-color: var(--dark);
   color: white;
   position: sticky;
+  z-index: 3;
   top: 0;
   height: 10vh;
   display: flex;
@@ -14,6 +15,7 @@ header {
   gap: 10px;
 }
 .left img {
+  margin-top: 10px;
   height: 50px;
 }
 .left svg {
@@ -123,8 +125,11 @@ nav ul li {
     padding: 5px;
     display: flex;
     flex-direction: column;
-    height: 20vh;
+    height: 18vh;
     justify-content: flex-start;
+  }
+  .center {
+    display: none;
   }
   .left {
     display: flex;
