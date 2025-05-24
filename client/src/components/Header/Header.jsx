@@ -5,6 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
+import { IoIosMenu } from "react-icons/io";
 function Header() {
   return (
     <>
@@ -54,6 +55,20 @@ function Header() {
           </div>
         </div>
       </header>
+      <nav>
+        <nav>
+          <IoIosMenu />
+          <ul>
+            <li>All</li>
+            <li>Today's Deals</li>
+            <li>Registry</li>
+            <li>Prime Video</li>
+            <li>Gift Cards</li>
+            <li>Customer Service</li>
+            <li>Sell</li>
+          </ul>
+        </nav>
+      </nav>
     </>
   );
 }

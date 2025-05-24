@@ -1,0 +1,4 @@
+.carousel {
+  width: 100%;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 90%);
+}
