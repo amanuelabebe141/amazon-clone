@@ -2,7 +2,8 @@ import React from "react";
 import classes from "./Product.module.css";
 import Rating from "react-rating";
 import { FaStar, FaRegStar } from "react-icons/fa";
-function ProductCard({ id, title, image, description, rating, price }) {
+import { Link } from "react-router-dom";
+function ProductCard({ id, title, image, description, rating, price, extra }) {
   function truncate(text, maxLength) {
     const string = new String(text);
     if (string.length <= maxLength) return text;
@@ -16,8 +17,15 @@ function ProductCard({ id, title, image, description, rating, price }) {
     }).format(price);
   }
   return (
-    <div className={classes.card}>
-      <img src={image} alt="" />
+    <div className={`${classes.card} ${extra && classes.extra}`}>
+      <Link to={`/products/${id}`}>
+        <img src={image} alt="" />
+      </Link>
+      {extra && (
+        <div className={classes.description}>
+          <p>{description}</p>
+        </div>
+      )}
       <div className={classes.info}>
         <p>{truncate(title, 40)}</p>
         <span className={classes.price}>{currency(price)}</span>

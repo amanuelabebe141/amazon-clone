@@ -43,6 +43,7 @@ button {
   font-weight: 500;
   color: white;
   display: none;
+  cursor: pointer;
 }
 .card:hover button {
   display: block;
@@ -60,4 +61,19 @@ button {
   .items {
     grid-template-columns: 1fr;
   }
+}
+
+.extra {
+  margin: 50px auto;
+  display: grid;
+  width: 80%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.extra button,
+.extra .price {
+  display: block !important;
+}
+.extra:hover button,
+.extra:hover .price {
+  display: block !important;
 }

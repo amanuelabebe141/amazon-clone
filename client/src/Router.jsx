@@ -5,6 +5,7 @@ import Auth from "./pages/Auth/Auth";
 import Return from "./pages/Return/Return";
 import Cart from "./pages/Cart/Cart";
 import Category from "./pages/Category/Category";
+import Single from "./pages/Single/Single";
 function Router() {
   return (
     <>
@@ -15,6 +16,7 @@ function Router() {
           <Route path="/return" element={<Return />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/category/:niche" element={<Category />}></Route>
+          <Route path="/products/:singleNiche" element={<Single />}></Route>
         </Routes>
       </BrowserRouter>
     </>

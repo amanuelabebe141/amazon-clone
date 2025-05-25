@@ -1,30 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import { useParams } from "react-router-dom";
-import classes from "./Category.module.css";
+import classes from "./Single.module.css";
 import axios from "axios";
 import ProductCard from "../../components/Body/Products/ProductCard";
 
-function Category() {
+function Single() {
   const [product, setProduct] = useState([]);
-  const { niche } = useParams();
+  const { singleNiche } = useParams();
   useEffect(() => {
     axios
-      .get(`https://fakestoreapi.com/products/category/${niche}`)
+      .get(`https://fakestoreapi.com/products/${singleNiche}`)
       .then((res) => setProduct(res.data))
       .catch((err) => console.log(err));
   }, []);
   return (
     <>
       <Header />
-      <h1>Results</h1>
-      <div className={classes.result_container}>
-        {product?.map((item) => (
-          <ProductCard key={item.id} {...item} />
-        ))}
+      <div className={classes.single_container}>
+        <ProductCard {...product} extra={true} />
       </div>
     </>
   );
 }
 
-export default Category;
+export default Single;
