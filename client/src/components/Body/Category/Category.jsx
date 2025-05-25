@@ -6,7 +6,7 @@ function Category() {
   return (
     <>
       <div className={classes.category}>
-        {data.map((item) => (
+        {data?.map((item) => (
           <CategoryCard key={item.id} {...item} />
         ))}
       </div>

@@ -16,7 +16,7 @@ function Products() {
         <h2>Products</h2>
         <div className={classes.items}>
           {product?.map((item) => {
-            return <ProductCard {...item} />;
+            return <ProductCard key={item.id} {...item} />;
           })}
         </div>
       </div>
