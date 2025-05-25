@@ -6,12 +6,15 @@ import { IoSearch } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
 import { IoIosMenu } from "react-icons/io";
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <>
       <header>
         <div className={classes.left}>
-          <img src={logo} alt="Amazon logo" />
+          <Link to={"/"}>
+            <img src={logo} alt="Amazon logo" />
+          </Link>
           <div className={classes.delivery}>
             <FaLocationDot />
             <div>
@@ -39,20 +42,26 @@ function Header() {
             <p>ENG</p>
             <IoMdArrowDropdown />
           </div>
-          <div className={classes.auth}>
-            <p>Hello, Sign in</p>
-            <span>
-              Accounts and Lists <IoMdArrowDropdown />{" "}
-            </span>
-          </div>
-          <div className={classes.return}>
-            <p>Return &</p>
-            <p>Orders</p>
-          </div>
-          <div className={classes.cart}>
-            <IoMdCart />
-            <p>0</p>
-          </div>
+          <Link to={"/auth"}>
+            <div className={classes.auth}>
+              <p>Hello, Sign in</p>
+              <span>
+                Accounts and Lists <IoMdArrowDropdown />{" "}
+              </span>
+            </div>
+          </Link>
+          <Link to={"/return"}>
+            <div className={classes.return}>
+              <p>Return &</p>
+              <p>Orders</p>
+            </div>
+          </Link>
+          <Link to={"/cart"}>
+            <div className={classes.cart}>
+              <IoMdCart />
+              <p>0</p>
+            </div>
+          </Link>
         </div>
       </header>
       <nav>
