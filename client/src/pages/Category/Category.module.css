@@ -9,3 +9,9 @@ h1 {
   font-size: 25px;
   font-weight: 700;
 }
+.loader {
+  display: flex;
+  justify-self: center;
+  margin: 20px auto;
+  opacity: 0.6;
+}
