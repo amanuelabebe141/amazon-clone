@@ -1,0 +1,12 @@
+.checkout {
+  position: fixed;
+  top: 20%;
+  right: 50px;
+  background-color: rgb(236, 236, 236);
+  padding: 10px 20px;
+  border: 1px solid saddlebrown;
+  height: max-content;
+}
+button {
+  display: block !important;
+}

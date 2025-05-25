@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./Product.module.css";
 import Rating from "react-rating";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-function ProductCard({ id, title, image, description, rating, price, extra }) {
+import { Data } from "../../../DataProvider";
+import { Type } from "../../../../utils/action.type";
+function ProductCard({
+  id,
+  title,
+  image,
+  description,
+  rating,
+  price,
+  extra,
+  cart,
+}) {
   function truncate(text, maxLength) {
     const string = new String(text);
     if (string.length <= maxLength) return text;
@@ -16,8 +27,32 @@ function ProductCard({ id, title, image, description, rating, price, extra }) {
       currency: "USD",
     }).format(price);
   }
+  const [state, dispatch] = useContext(Data);
+  function addtocart() {
+    dispatch({
+      type: Type.ADD_TO_CART,
+      item: { id, title, image, description, rating, price },
+    });
+  }
+  function remove() {
+    dispatch({
+      type: Type.REMOVE_FROM_CART,
+      item: {
+        id,
+        title,
+        price,
+        description,
+        image,
+        rating,
+      },
+    });
+  }
   return (
-    <div className={`${classes.card} ${extra && classes.extra}`}>
+    <div
+      className={`${classes.card} ${extra && classes.extra} ${
+        cart && classes.cart
+      }`}
+    >
       <Link to={`/products/${id}`}>
         <img src={image} alt="" />
       </Link>
@@ -35,7 +70,14 @@ function ProductCard({ id, title, image, description, rating, price, extra }) {
           initialRating={rating?.rate}
           fractions={2}
         />
-        <button>Add to cart</button>
+        <button className={classes.none} onClick={addtocart}>
+          Add to cart
+        </button>
+        {cart && (
+          <button className={classes.remove} onClick={remove}>
+            Remove from cart
+          </button>
+        )}
       </div>
     </div>
   );

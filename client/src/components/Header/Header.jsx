@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../../assets/image/logo.png";
 import classes from "./Header.module.css";
 import { FaLocationDot } from "react-icons/fa6";
@@ -7,7 +7,10 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdCart } from "react-icons/io";
 import { IoIosMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { Data } from "../../DataProvider";
 function Header() {
+  const [state, dispatch] = useContext(Data);
+  const totalItems = state.basket.length || 0;
   return (
     <>
       <header>
@@ -59,7 +62,7 @@ function Header() {
           <Link to={"/cart"}>
             <div className={classes.cart}>
               <IoMdCart />
-              <p>0</p>
+              <p>{totalItems}</p>
             </div>
           </Link>
         </div>

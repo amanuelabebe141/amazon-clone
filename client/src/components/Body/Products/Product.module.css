@@ -39,6 +39,9 @@
   flex-direction: column;
   padding: 5px 20px;
 }
+.card:hover button {
+  display: block !important;
+}
 
 button {
   width: 100%;
@@ -48,14 +51,11 @@ button {
   border: none;
   font-weight: 500;
   color: white;
-  display: none;
+  display: none !important;
   cursor: pointer;
 }
-.card:hover button {
-  display: block;
-}
 .card:hover .price {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 800px) {
@@ -82,4 +82,13 @@ button {
 .extra:hover button,
 .extra:hover .price {
   display: block !important;
+}
+.cart .none {
+  display: none !important;
+}
+.cart:hover .none {
+  display: none !important;
+}
+.remove {
+  background-color: red;
 }
