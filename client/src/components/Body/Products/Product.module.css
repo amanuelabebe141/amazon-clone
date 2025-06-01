@@ -39,9 +39,6 @@
   flex-direction: column;
   padding: 5px 20px;
 }
-.card:hover button {
-  display: block !important;
-}
 
 button {
   width: 100%;
@@ -91,4 +88,19 @@ button {
 }
 .remove {
   background-color: red;
+}
+@media (max-width: 500px) {
+  .extra {
+    grid-template-columns: 1fr;
+    height: max-content;
+  }
+  .extra .description {
+    display: none;
+  }
+}
+.card:hover button {
+  display: block !important;
+}
+.card button {
+  display: none !important;
 }

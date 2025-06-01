@@ -2,6 +2,7 @@ import { Type } from "./action.type";
 
 export const InitialState = {
   basket: [],
+  user:[]
 };
 
 export const Reducer = (state, action) => {
@@ -17,6 +18,16 @@ export const Reducer = (state, action) => {
         ...state,
         basket: state.basket.filter((item) => item.id !== action.item.id),
       };
+    case Type.SET_USER:
+      return{
+        ...state,
+        user: action.user
+      }
+    case Type.EMPTY_BASKET:
+      return{
+        ...state,
+        basket:[]
+      }
     default:
       return state;
   }

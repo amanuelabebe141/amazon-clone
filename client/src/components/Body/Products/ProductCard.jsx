@@ -58,7 +58,7 @@ function ProductCard({
       </Link>
       {extra && (
         <div className={classes.description}>
-          <p>{description}</p>
+          <p>{truncate(description, 300)}</p>
         </div>
       )}
       <div className={classes.info}>

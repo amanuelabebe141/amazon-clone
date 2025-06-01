@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Data } from "../../DataProvider";
 import ProductCard from "../../components/Body/Products/ProductCard";
 import classes from "./Cart.module.css";
+import { Link } from 'react-router-dom';
 function Cart() {
   const [{ basket }, dispatch] = useContext(Data);
   const subtotal = basket?.reduce((acc, item) => acc + item.price, 0);
@@ -25,7 +26,9 @@ function Cart() {
         <div className={classes.checkout}>
           <p>Subtotal ({basket?.length || 0} items)</p>
           <p>Price: {currency(subtotal)}</p>
+          <Link to={'/payment'}>
           <button>Continue to checkout</button>
+          </Link>
         </div>
       </div>
     </>

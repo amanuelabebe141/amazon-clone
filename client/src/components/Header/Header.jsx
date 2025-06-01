@@ -8,9 +8,21 @@ import { IoMdCart } from "react-icons/io";
 import { IoIosMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Data } from "../../DataProvider";
+import {LuLogOut} from 'react-icons/lu';
+import {signOut} from 'firebase/auth';
+import { auth } from "../../../utils/firebase";
+import { Type } from "../../../utils/action.type";
 function Header() {
   const [state, dispatch] = useContext(Data);
   const totalItems = state.basket.length || 0;
+  const user = state.user;
+  function logout() {
+    signOut(auth)
+    dispatch({
+      type:Type.SET_USER,
+      user : null
+    })
+  }
   return (
     <>
       <header>
@@ -45,12 +57,15 @@ function Header() {
             <p>ENG</p>
             <IoMdArrowDropdown />
           </div>
-          <Link to={"/auth"}>
+          <Link to={user ? '' : "/auth"}>
             <div className={classes.auth}>
-              <p>Hello, Sign in</p>
-              <span>
-                Accounts and Lists <IoMdArrowDropdown />{" "}
-              </span>
+              {
+                user ?  <><p>Hello, {user?.email?.split('@')[0]}</p>
+                <span onClick={logout}>Logout <LuLogOut/></span></> : <><p>Hello, Sign in</p><span>
+                  Accounts and Lists <IoMdArrowDropdown />{" "}
+                </span></> 
+              }
+             
             </div>
           </Link>
           <Link to={"/return"}>
