@@ -12,7 +12,7 @@ import { loadStripe } from "@stripe/stripe-js";
 function Router() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/amazon-clone/">
         <Routes>
           <Route path="/" element={<Landing />}></Route>
           <Route path="/auth" element={<Auth />}></Route>

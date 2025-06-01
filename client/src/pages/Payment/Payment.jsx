@@ -24,7 +24,7 @@ function Payment() {
     setError(null) // clear previous error
 
     try {
-      const response = await axios.post(`http://localhost:5000/payment/create?total=${subTotal}`)
+      const response = await axios.post(`https://amazon-clone-oq0m.onrender.com/payment/create?total=${subTotal}`)
       const clientSecret = response.data.clientSecret
 
       if (!clientSecret) {
